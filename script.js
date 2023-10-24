@@ -1,9 +1,11 @@
 document.addEventListener('DOMContentLoaded', ()=>{
+    const URL = "https://api.giphy.com/v1/gifs/search?api_key=";
+    const APIKEY = "YIsjFowb5cokIEmiQ9t4LaIkjZt43SCn";
     function init(){
         event.preventDefault();
         let input = document.getElementById('search').value.trim();
         const promise_1 = new Promise((resolve) =>{
-            fetch(`https://api.giphy.com/v1/gifs/search?api_key=YIsjFowb5cokIEmiQ9t4LaIkjZt43SCn&q=${input}&limit=25`)
+            fetch(`${URL}${APIKEY}&q=${input}&limit=25`)
             .then(data => resolve(data.json()))
             .catch(error => console.log(error))
         })
